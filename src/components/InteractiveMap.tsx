@@ -1,9 +1,7 @@
 
-import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { MapPin } from 'lucide-react';
-import 'leaflet/dist/leaflet.css';
+import React, { useEffect, useRef } from 'react';
 import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 
 // Fix for default markers in react-leaflet
 delete (L.Icon.Default.prototype as any)._getIconUrl;
@@ -28,6 +26,9 @@ interface InteractiveMapProps {
 }
 
 const InteractiveMap: React.FC<InteractiveMapProps> = ({ trails }) => {
+  const mapRef = useRef<HTMLDivElement>(null);
+  const mapInstanceRef = useRef<L.Map | null>(null);
+
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
       case 'easy': return '#10b981';
@@ -47,45 +48,59 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({ trails }) => {
     });
   };
 
+  useEffect(() => {
+    if (!mapRef.current || mapInstanceRef.current) return;
+
+    // Initialize the map
+    const map = L.map(mapRef.current).setView([43.6, 3.2], 6);
+    mapInstanceRef.current = map;
+
+    // Add tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Add markers for trails
+    trails.forEach((trail) => {
+      const marker = L.marker(trail.coordinates, {
+        icon: createCustomIcon(trail.difficulty)
+      }).addTo(map);
+
+      // Create popup content
+      const popupContent = `
+        <div class="p-2">
+          <h3 class="font-bold text-lg mb-1">${trail.name}</h3>
+          <p class="text-gray-600 mb-2">${trail.location}</p>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="px-2 py-1 rounded-full text-xs font-medium ${
+              trail.difficulty === 'easy' ? 'bg-green-100 text-green-800' :
+              trail.difficulty === 'moderate' ? 'bg-yellow-100 text-yellow-800' :
+              'bg-red-100 text-red-800'
+            }">
+              ${trail.difficulty.charAt(0).toUpperCase() + trail.difficulty.slice(1)}
+            </span>
+          </div>
+          <div class="text-sm text-gray-600">
+            <p>${trail.distance} • ${trail.duration}</p>
+          </div>
+        </div>
+      `;
+
+      marker.bindPopup(popupContent);
+    });
+
+    // Cleanup function
+    return () => {
+      if (mapInstanceRef.current) {
+        mapInstanceRef.current.remove();
+        mapInstanceRef.current = null;
+      }
+    };
+  }, [trails]);
+
   return (
     <div className="w-full h-96 rounded-lg overflow-hidden shadow-lg">
-      <MapContainer
-        center={[43.6, 3.2]} // Center of Southern France
-        zoom={6}
-        style={{ height: '100%', width: '100%' }}
-        className="z-0"
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        {trails.map((trail) => (
-          <Marker
-            key={trail.id}
-            position={trail.coordinates}
-            icon={createCustomIcon(trail.difficulty)}
-          >
-            <Popup>
-              <div className="p-2">
-                <h3 className="font-bold text-lg mb-1">{trail.name}</h3>
-                <p className="text-gray-600 mb-2">{trail.location}</p>
-                <div className="flex items-center gap-2 mb-1">
-                  <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                    trail.difficulty === 'easy' ? 'bg-green-100 text-green-800' :
-                    trail.difficulty === 'moderate' ? 'bg-yellow-100 text-yellow-800' :
-                    'bg-red-100 text-red-800'
-                  }`}>
-                    {trail.difficulty.charAt(0).toUpperCase() + trail.difficulty.slice(1)}
-                  </span>
-                </div>
-                <div className="text-sm text-gray-600">
-                  <p>{trail.distance} • {trail.duration}</p>
-                </div>
-              </div>
-            </Popup>
-          </Marker>
-        ))}
-      </MapContainer>
+      <div ref={mapRef} className="w-full h-full" />
     </div>
   );
 };
