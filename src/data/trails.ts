@@ -1,4 +1,3 @@
-
 export const trails = [
   {
     id: 1,
@@ -16,7 +15,8 @@ export const trails = [
     description: "A stunning coastal path offering breathtaking views of the Mediterranean Sea. This easy trail follows the shoreline with minimal elevation gain, perfect for families and leisurely walks.",
     highlights: ["Mediterranean views", "Coastal villages", "Beach access", "Cafés along route"],
     bestMonths: ["June", "July", "August", "September"],
-    image: "coastal-path.jpg"
+    image: "coastal-path.jpg",
+    coordinates: [43.7102, 7.2620] as [number, number]
   },
   {
     id: 2,
@@ -34,7 +34,8 @@ export const trails = [
     description: "A challenging section of the famous GR10 trail through the Pyrenees. This demanding hike offers spectacular mountain views and pristine alpine scenery.",
     highlights: ["Alpine lakes", "Mountain peaks", "Wildlife spotting", "Refuges"],
     bestMonths: ["July", "August", "September"],
-    image: "pyrenees-mountains.jpg"
+    image: "pyrenees-mountains.jpg",
+    coordinates: [42.7869, 1.6112] as [number, number]
   },
   {
     id: 3,
@@ -52,7 +53,8 @@ export const trails = [
     description: "A magnificent walk to one of France's most spectacular natural amphitheaters. The trail leads to the base of Europe's highest waterfall.",
     highlights: ["UNESCO World Heritage", "Waterfall views", "Limestone cliffs", "Guided tours available"],
     bestMonths: ["June", "July", "August", "September"],
-    image: "gavarnie-cirque.jpg"
+    image: "gavarnie-cirque.jpg",
+    coordinates: [42.7319, 0.0139] as [number, number]
   },
   {
     id: 4,
@@ -70,7 +72,8 @@ export const trails = [
     description: "Explore the dramatic limestone cliffs and turquoise waters of the Calanques National Park. This trail offers stunning views of hidden coves and crystal-clear Mediterranean waters.",
     highlights: ["Turquoise waters", "Limestone cliffs", "Hidden beaches", "National Park"],
     bestMonths: ["June", "July", "August", "September"],
-    image: "calanques-cassis.jpg"
+    image: "calanques-cassis.jpg",
+    coordinates: [43.2084, 5.5407] as [number, number]
   },
   {
     id: 5,
@@ -88,7 +91,8 @@ export const trails = [
     description: "Conquer the 'Giant of Provence' - a challenging ascent to the summit of Mont Ventoux. Famous among cyclists and hikers for its lunar-like landscape at the top.",
     highlights: ["360° summit views", "Lavender fields", "Cycling history", "Weather station"],
     bestMonths: ["June", "July", "August", "September"],
-    image: "mont-ventoux.jpg"
+    image: "mont-ventoux.jpg",
+    coordinates: [44.1735, 5.2785] as [number, number]
   },
   {
     id: 6,
@@ -106,7 +110,8 @@ export const trails = [
     description: "Europe's Grand Canyon offers spectacular views of turquoise waters and dramatic limestone gorges. Multiple viewpoints provide perfect photo opportunities.",
     highlights: ["Turquoise river", "Limestone gorges", "Viewpoints", "Rock climbing"],
     bestMonths: ["June", "July", "August", "September"],
-    image: "gorges-verdon.jpg"
+    image: "gorges-verdon.jpg",
+    coordinates: [43.7084, 6.3607] as [number, number]
   },
   {
     id: 7,
@@ -124,7 +129,8 @@ export const trails = [
     description: "The sacred mountain of Catalonia offers challenging terrain and rewarding summit views. This peak holds cultural significance for the Catalan people.",
     highlights: ["Sacred mountain", "Panoramic views", "Catalan culture", "Alpine flora"],
     bestMonths: ["July", "August", "September"],
-    image: "pic-canigo.jpg"
+    image: "pic-canigo.jpg",
+    coordinates: [42.5186, 2.4564] as [number, number]
   },
   {
     id: 8,
@@ -142,7 +148,8 @@ export const trails = [
     description: "A unique trail through the colorful ochre cliffs of Roussillon. This easy walk showcases the natural pigments that made the village famous.",
     highlights: ["Ochre cliffs", "Colorful landscapes", "Village charm", "Photography"],
     bestMonths: ["June", "July", "August", "September"],
-    image: "roussillon-ochre.jpg"
+    image: "roussillon-ochre.jpg",
+    coordinates: [43.9017, 5.2931] as [number, number]
   },
   {
     id: 9,
@@ -160,7 +167,8 @@ export const trails = [
     description: "Walk through endless lavender fields during bloom season. This gentle trail offers Instagram-worthy views and the intoxicating scent of Provence.",
     highlights: ["Lavender fields", "Provence scenery", "Photo opportunities", "Local products"],
     bestMonths: ["June", "July", "August"],
-    image: "valensole-lavender.jpg"
+    image: "valensole-lavender.jpg",
+    coordinates: [43.8356, 5.9847] as [number, number]
   },
   {
     id: 10,
@@ -178,7 +186,8 @@ export const trails = [
     description: "A short, pleasant hike to a beautiful waterfall perfect for cooling off in summer. The trail follows a gentle creek through shaded forest.",
     highlights: ["Waterfall swimming", "Shaded forest", "Creek views", "Picnic spots"],
     bestMonths: ["June", "July", "August", "September"],
-    image: "sillans-waterfall.jpg"
+    image: "sillans-waterfall.jpg",
+    coordinates: [43.5645, 6.1812] as [number, number]
   },
   {
     id: 11,
@@ -196,7 +205,8 @@ export const trails = [
     description: "A scenic coastal walk around Cap d'Antibes offering views of luxury villas and pristine beaches. Perfect for a leisurely afternoon stroll.",
     highlights: ["Coastal views", "Luxury villas", "Beach access", "Lighthouse"],
     bestMonths: ["June", "July", "August", "September"],
-    image: "cap-antibes.jpg"
+    image: "cap-antibes.jpg",
+    coordinates: [43.5528, 7.1317] as [number, number]
   },
   {
     id: 12,
@@ -214,7 +224,8 @@ export const trails = [
     description: "Explore the red volcanic rocks of the Esterel Mountains with stunning views over the Mediterranean. This trail combines forest paths with coastal vistas.",
     highlights: ["Red rock formations", "Mediterranean views", "Volcanic landscape", "Pine forests"],
     bestMonths: ["June", "July", "August", "September"],
-    image: "massif-esterel.jpg"
+    image: "massif-esterel.jpg",
+    coordinates: [43.4242, 6.8617] as [number, number]
   },
   {
     id: 13,
@@ -232,7 +243,8 @@ export const trails = [
     description: "Visit the mysterious source of the Sorgue River, one of the most powerful karst springs in the world. The trail follows the crystal-clear river through a charming valley.",
     highlights: ["Karst spring", "Crystal-clear river", "Historic village", "Petrarch's house"],
     bestMonths: ["June", "July", "August", "September"],
-    image: "fontaine-vaucluse.jpg"
+    image: "fontaine-vaucluse.jpg",
+    coordinates: [43.9225, 5.1317] as [number, number]
   },
   {
     id: 14,
@@ -250,7 +262,8 @@ export const trails = [
     description: "An extremely challenging high-altitude trek offering unparalleled views of Mont Blanc and the surrounding peaks. Requires mountaineering experience.",
     highlights: ["Mont Blanc views", "High altitude", "Glaciers", "Cable car access"],
     bestMonths: ["July", "August", "September"],
-    image: "aiguille-midi.jpg"
+    image: "aiguille-midi.jpg",
+    coordinates: [45.8788, 6.8875] as [number, number]
   },
   {
     id: 15,
@@ -268,7 +281,8 @@ export const trails = [
     description: "A peaceful walk around the stunning turquoise lake created by the Sainte-Croix dam. Perfect for families with opportunities for swimming and pedal boating.",
     highlights: ["Turquoise lake", "Swimming spots", "Pedal boats", "Picnic areas"],
     bestMonths: ["June", "July", "August", "September"],
-    image: "lac-sainte-croix.jpg"
+    image: "lac-sainte-croix.jpg",
+    coordinates: [43.7750, 6.1833] as [number, number]
   },
   {
     id: 16,
@@ -286,7 +300,8 @@ export const trails = [
     description: "A spectacular horseshoe-shaped canyon carved by the Vis River. This UNESCO World Heritage site offers dramatic viewpoints and geological wonders.",
     highlights: ["UNESCO site", "Horseshoe canyon", "Geological formations", "River views"],
     bestMonths: ["June", "July", "August", "September"],
-    image: "cirque-navacelles.jpg"
+    image: "cirque-navacelles.jpg",
+    coordinates: [43.9147, 3.3547] as [number, number]
   },
   {
     id: 17,
@@ -304,7 +319,8 @@ export const trails = [
     description: "A scenic coastal trail connecting Monaco to Menton with stunning views of the Mediterranean and the Italian Riviera. Pass through charming seaside villages.",
     highlights: ["Coastal views", "Italian Riviera", "Seaside villages", "International border"],
     bestMonths: ["June", "July", "August", "September"],
-    image: "corniche-trail.jpg"
+    image: "corniche-trail.jpg",
+    coordinates: [43.7384, 7.4246] as [number, number]
   },
   {
     id: 18,
@@ -322,7 +338,8 @@ export const trails = [
     description: "Explore the wild landscapes of the Cévennes National Park with its ancient villages, chestnut groves, and traditional stone houses.",
     highlights: ["National Park", "Ancient villages", "Chestnut groves", "Traditional architecture"],
     bestMonths: ["June", "July", "August", "September"],
-    image: "cevennes-park.jpg"
+    image: "cevennes-park.jpg",
+    coordinates: [44.2558, 3.8147] as [number, number]
   },
   {
     id: 19,
@@ -340,7 +357,8 @@ export const trails = [
     description: "Hike through the jagged limestone peaks that resemble lace ('dentelles') with vineyards and olive groves at their base. A photographer's paradise.",
     highlights: ["Limestone peaks", "Vineyards", "Olive groves", "Photography"],
     bestMonths: ["June", "July", "August", "September"],
-    image: "dentelles-montmirail.jpg"
+    image: "dentelles-montmirail.jpg",
+    coordinates: [44.1558, 5.0231] as [number, number]
   },
   {
     id: 20,
@@ -358,6 +376,7 @@ export const trails = [
     description: "Discover the dramatic granite spires and deep forests of Corsica's interior. This challenging trail offers spectacular mountain views and pristine wilderness.",
     highlights: ["Granite spires", "Mountain forests", "Corsican wilderness", "Dramatic views"],
     bestMonths: ["June", "July", "August", "September"],
-    image: "col-bavella.jpg"
+    image: "col-bavella.jpg",
+    coordinates: [41.7967, 9.2131] as [number, number]
   }
 ];

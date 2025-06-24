@@ -1,8 +1,8 @@
-
 import React, { useState } from 'react';
 import HeroSection from '../components/HeroSection';
 import TrailCard from '../components/TrailCard';
 import TrailFilters from '../components/TrailFilters';
+import InteractiveMap from '../components/InteractiveMap';
 import { trails } from '../data/trails';
 
 const Index = () => {
@@ -44,6 +44,33 @@ const Index = () => {
             Explore breathtaking hiking trails perfect for summer adventures from June to September. 
             Each trail includes detailed information about difficulty, accessibility, and practical details.
           </p>
+        </div>
+
+        {/* Interactive Map Section */}
+        <div className="mb-16">
+          <div className="text-center mb-8">
+            <h3 className="text-3xl font-bold text-gray-800 mb-4">
+              Trail Locations Map
+            </h3>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+              Explore all hiking trails on our interactive map. Click on any marker to see trail details and difficulty levels.
+            </p>
+            <div className="flex justify-center gap-4 mb-6">
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 bg-green-500 rounded-full border-2 border-white shadow"></div>
+                <span className="text-sm text-gray-600">Easy</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 bg-yellow-500 rounded-full border-2 border-white shadow"></div>
+                <span className="text-sm text-gray-600">Moderate</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 bg-red-500 rounded-full border-2 border-white shadow"></div>
+                <span className="text-sm text-gray-600">Difficult</span>
+              </div>
+            </div>
+          </div>
+          <InteractiveMap trails={filteredTrails} />
         </div>
 
         <TrailFilters 
